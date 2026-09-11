@@ -12,5 +12,14 @@
 
 ![Демонстрация](screenshots/demo.svg)
 
-## Лицензия
-MIT
+## 📬 Контакты
+
+Вопросы? Пишите: **[allumaxmail@gmail.com](mailto:allumaxmail@gmail.com)**
+
+---
+
+<div align="center">
+
+**🇬🇧 [English](README.md) · 🇷🇺 [Русский](README.ru.md) · 🇺🇿 [Oʻzbekcha](README.uz.md)**
+
+</div>

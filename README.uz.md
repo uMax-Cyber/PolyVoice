@@ -4,7 +4,7 @@
 
 </div>
 
-# PolyVoice — Ko'p Tilli TTS + STT
+# PolyVoice — Многоязычный TTS + STT
 
 Uch tilli (ru/en/uz) nutq sintezi va tanish: edge-tts, GigaAM, code-switching.
 
@@ -12,5 +12,14 @@ Uch tilli (ru/en/uz) nutq sintezi va tanish: edge-tts, GigaAM, code-switching.
 
 ![Namoyish](screenshots/demo.svg)
 
-## Litsenziya
-MIT
+## 📬 Aloqa
+
+Savollar bormi? Yozing: **[allumaxmail@gmail.com](mailto:allumaxmail@gmail.com)**
+
+---
+
+<div align="center">
+
+**🇬🇧 [English](README.md) · 🇷🇺 [Русский](README.ru.md) · 🇺🇿 [Oʻzbekcha](README.uz.md)**
+
+</div>
