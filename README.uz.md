@@ -45,7 +45,7 @@ Kirish audiosi → GigaAM multilingual (asosiy, 0.5 s) → Sifat tekshiriladi
 
 ## Ishlab chiqarishdan olingan xulosalar
 
-1. **Oʻzbek tilida GigaAM Whisperrdan kuchli** (lotin yozuvida): Whisper oʻzbekni fors tilidan ajrata olmaydi, GigaAM esa bemalol ajratadi
+1. **Oʻzbek tilida GigaAM Whisperdan kuchli** (lotin yozuvida): Whisper oʻzbekni fors tilidan ajrata olmaydi, GigaAM esa bemalol ajratadi
 2. **Til almashinuvi — eng qiyin holat**: bitta audioda rus va oʻzbek aralash kelsa, GigaAM buzilgan matn chiqaradi — bu holatda Whisper yaxshiroq ishlaydi
 3. **Edge TTS bepul va yetarli**: agentning ovozli javoblari uchun pulli APIlarga ehtiyoj yoʻq
 
