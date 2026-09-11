@@ -1,4 +1,5 @@
 # Multilingual TTS + STT Pipeline
+[![CI](https://github.com/uMax-Cyber/PolyVoice/actions/workflows/ci.yml/badge.svg)](https://github.com/uMax-Cyber/PolyVoice/actions/workflows/ci.yml)
 
 Three-language (Russian/English/Uzbek) text-to-speech and speech-to-text pipeline for AI agents. Handles mixed-language input ("bratan, nado sdelat legacy project, salom bolla") with automatic language detection per segment.
 
