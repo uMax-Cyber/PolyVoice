@@ -13,6 +13,14 @@
 ![Demo](screenshots/demo.svg)
 Three-language (Russian/English/Uzbek) text-to-speech and speech-to-text pipeline for AI agents. Handles mixed-language input ("bratan, nado sdelat legacy project, salom bolla") with automatic language detection per segment.
 
+## ✨ Features
+
+- **Automatic language detection** per segment — Cyrillic vs Latin script plus lexical hints for Uzbek
+- **Free TTS** via Microsoft Edge neural voices (no API key, zero cost)
+- **Robust STT** with GigaAM multilingual as primary and faster-whisper as fallback
+- **Garble detection** — catches code-switching failures and retries with the fallback engine
+- **Single output file** — per-segment audio stitched together with ffmpeg
+
 ## Architecture
 
 ### TTS (Text-to-Speech)
@@ -51,6 +59,18 @@ pip install edge-tts
 git clone https://github.com/salute-developers/GigaAM.git
 pip install -e GigaAM[torch]
 ```
+
+## Usage
+
+```bash
+# Text argument + output file (defaults shown)
+python3 scripts/tts_multilang.py "Привет! Hello! Salom!" /tmp/tts_output.mp3
+
+# Mixed-language input — segments are detected and voiced separately
+python3 scripts/tts_multilang.py "bratan, nado sdelat legacy project, salom bolla" out.mp3
+```
+
+Requires `ffmpeg` on PATH for multi-segment concatenation.
 
 ## License
 MIT

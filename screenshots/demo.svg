@@ -3,13 +3,14 @@
 <rect width="800" height="30" fill="#181825" rx="8"><animate attributeName="opacity" values="1;0.9;1" dur="4s" repeatCount="indefinite"/></rect>
 <circle cx="20" cy="15" r="6" fill="#f38ba8"/><circle cx="40" cy="15" r="6" fill="#f9e2af"/><circle cx="60" cy="15" r="6" fill="#a6e3a1"/>
 <text x="400" y="20" text-anchor="middle" fill="#cdd6f4" font-family="monospace" font-size="12">PolyVoice — Multilingual TTS+STT</text>
-<text x="15" y="55" fill="#a6e3a1" font-family="monospace" font-size="13">$ python3 tts_multilang.py 'Привет hello salom'</text>
-<text x="15" y="90" fill="#89b4fa" font-family="monospace" font-size="13">Detected: ru → en → uz</text>
-<text x="15" y="120" fill="#cdd6f4" font-family="monospace" font-size="13">Synthesizing 3 segments...</text>
-<text x="15" y="150" fill="#f9e2af" font-family="monospace" font-size="13">✅ ru-RU-DmitryNeural | en-US-Andrew | uz-UZ-Sardor</text>
-<text x="15" y="180" fill="#f9e2af" font-family="monospace" font-size="13">Output: /tmp/output.mp3 (3.2s)</text>
-<text x="15" y="220" fill="#a6e3a1" font-family="monospace" font-size="13">✓ Completed successfully</text>
-<rect x="15" y="430" width="10" height="18" fill="#a6e3a1">
-    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
+<text x="15" y="55" fill="#a6e3a1" font-family="monospace" font-size="13" opacity="0">$ python3 tts_multilang.py 'Привет hello salom'<animate attributeName="opacity" values="0;1" begin="0.3s" dur="0.4s" fill="freeze"/></text>
+<text x="15" y="90" fill="#89b4fa" font-family="monospace" font-size="13" opacity="0">Detected: ru → en → uz<animate attributeName="opacity" values="0;1" begin="1.2s" dur="0.4s" fill="freeze"/></text>
+<text x="15" y="120" fill="#cdd6f4" font-family="monospace" font-size="13" opacity="0">Synthesizing 3 segments...<animate attributeName="opacity" values="0;1" begin="2.0s" dur="0.4s" fill="freeze"/></text>
+<text x="15" y="150" fill="#f9e2af" font-family="monospace" font-size="13" opacity="0">✅ ru-RU-DmitryNeural | en-US-Andrew | uz-UZ-Sardor<animate attributeName="opacity" values="0;1" begin="2.9s" dur="0.4s" fill="freeze"/><animate attributeName="fill" values="#f9e2af;#fab387;#f9e2af" begin="3.4s" dur="1.6s" repeatCount="indefinite"/></text>
+<text x="15" y="180" fill="#f9e2af" font-family="monospace" font-size="13" opacity="0">Output: /tmp/output.mp3 (3.2s)<animate attributeName="opacity" values="0;1" begin="3.7s" dur="0.4s" fill="freeze"/></text>
+<text x="15" y="220" fill="#a6e3a1" font-family="monospace" font-size="13" opacity="0">✓ Completed successfully<animate attributeName="opacity" values="0;1" begin="4.5s" dur="0.4s" fill="freeze"/><animate attributeName="fill" values="#a6e3a1;#94e2d5;#a6e3a1" begin="5.0s" dur="1.4s" repeatCount="indefinite"/></text>
+<rect x="15" y="207" width="10" height="16" fill="#a6e3a1" opacity="0">
+    <animate attributeName="opacity" values="0;1" begin="4.9s" dur="0.2s" fill="freeze"/>
+    <animate attributeName="opacity" values="1;0;1" begin="5.1s" dur="1s" repeatCount="indefinite"/>
   </rect>
 </svg>
