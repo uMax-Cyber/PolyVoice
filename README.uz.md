@@ -11,43 +11,43 @@
 
 
 ![Namoyish](screenshots/demo.svg)
-AI-agentlar uchun uch tilli (rus/ingliz/oʻzbek) matndan nutq sintezi (TTS) va nutqni tanish (STT) konveyeri. Aralash matn kiritialarini («bratan, nado sdelat legacy project, salom bolla») har bir segment uchun tilni avtomatik aniqlash bilan qayta ishlaydi.
+AI agentlar uchun moʻljallangan uch tilli (rus/ingliz/oʻzbek) TTS va STT konveyeri: matnni nutqga aylantiradi va nutqni tanib oladi. Tillar aralash kirganda ham («bratan, nado sdelat legacy project, salom bolla») har bir segmentning tilini oʻzi aniqlaydi va toʻgʻri ovoz bilan oʻqiydi.
 
 ## ✨ Imkoniyatlar
 
-- **Har bir segment uchun tilni avtomatik aniqlash** — kirill yoki lotin yozuvi, oʻzbek tili uchun esa leksik ishoralar
-- **Bepul TTS** — Microsoft Edge neyron ovozlarida (API kalitsiz, mutlaqo bepul)
-- **Ishonchli STT** — asosiy dvigatel sifatida GigaAM Multilingual va zaxira sifatida faster-whisper
-- **Buzuqlikni aniqlash** — til almashtirishdagi xatolarni sezib, natijani zaxira dvigatel bilan qayta oladi
-- **Bitta chiqish fayli** — alohida segmentlar audioi ffmpeg orqali bitta faylga birlashtiriladi
+- **Tilni avtomatik aniqlash** — kirill va lotin yozuvlari farqlanadi, oʻzbek tili leksik belgilar orqali taniladi
+- **Bepul TTS** — Microsoft Edge neyron ovozlari ishlatiladi, API kalit ham kerak emas
+- **Ishonchli STT** — asosiy dvigatel GigaAM Multilingual, ishdan chiqsa faster-whisper zaxira sifatida ishga tushadi
+- **Buzilgan natijani aniqlash** — tillar aralashib natija chiqib qolsa, tanib olish zaxira dvigatel bilan qaytadan olib boriladi
+- **Yakunda bitta fayl** — har bir segmentning audiosi ffmpeg yordamida bitta faylga birlashtiriladi
 
 ## Arxitektura
 
 ### TTS (matndan nutqga)
 ```
-Kirish matni → Yozuv turini aniqlash (kirill/lotin) → Segmentlarga boʻlish
-→ Har bir segment uchun ovoz sintezi (edge-tts, bepul) → ffmpeg bilan birlashtirish → Bitta audio
+Kirish matni → Yozuv aniqlanadi (kirill/lotin) → Tillar boʻyicha segmentlanadi
+→ Har bir segment alohida sintez qilinadi (edge-tts, bepul) → ffmpeg bilan birlashtiriladi → Tayyor audio
 ```
 
 - **Ovozlar**: ru-RU-DmitryNeural, en-US-AndrewNeural, uz-UZ-SardorNeural
-- **Aniqlash**: kirill → rus; lotin → ingliz yoki oʻzbek (leksik ishoralar: salom, bolla, rahmat…)
-- **Nol xarajat**: Microsoft Edge TTS ishlatiladi (bepul, API kalitsiz)
+- **Aniqlash**: kirill → rus; lotin → ingliz yoki oʻzbek (leksik belgilar: salom, bolla, rahmat…)
+- **Xarajat nolga teng**: Microsoft Edge TTS ishlatiladi — bepul, API kalit talab qilmaydi
 
 ### STT (nutqdan matnga)
 ```
-Kirish audiosi → GigaAM multilingual (asosiy, 0.5 s) → Sifatni tekshirish
-→ Agar buzilgan boʻlsa → Zaxira Whisper → Eng yaxshi natija
+Kirish audiosi → GigaAM multilingual (asosiy, 0.5 s) → Sifat tekshiriladi
+→ Natija buzilgan boʻlsa → Whisper (zaxira) → Eng yaxshi natija
 ```
 
 - **Asosiy dvigatel**: GigaAM Multilingual (Sberning ochiq modeli, MIT litsenziyasi)
 - **Zaxira**: faster-whisper small
-- **Sifatni tekshirish**: aralash yozuvli buzilishlarni aniqlash (masalan, «bатаn помоi» = til almashtirishdagi xato)
+- **Sifat tekshiruvi**: aralash yozuvli buzilishlar aniqlanadi (masalan, «bатаn помоi» — tillar oʻz joyini almashgani)
 
-## Ishlab chiqarishdan asosiy xulosalar
+## Ishlab chiqarishdan olingan xulosalar
 
-1. **GigaAM oʻzbek tilida Whisperrdan yaxshiroq** (lotin yozuvida): Whisper oʻzbek tilini forschadan farqlay olmaydi; GigaAM buni mukammal bajaramoqda
-2. **Til almashtirish — eng qiyin holat**: rus va oʻzbek tillari bitta yozuvda aralashsa, GigaAM buzilgan matn chiqaradi — bunda Whisper yaxshiroq ishlaydi
-3. **Edge TTS bepul va yetarlicha yaxshi**: agentning ovozli javoblari uchun pulli APIlarga ehtiyoj yoʻq
+1. **Oʻzbek tilida GigaAM Whisperrdan kuchli** (lotin yozuvida): Whisper oʻzbekni fors tilidan ajrata olmaydi, GigaAM esa bemalol ajratadi
+2. **Til almashinuvi — eng qiyin holat**: bitta audioda rus va oʻzbek aralash kelsa, GigaAM buzilgan matn chiqaradi — bu holatda Whisper yaxshiroq ishlaydi
+3. **Edge TTS bepul va yetarli**: agentning ovozli javoblari uchun pulli APIlarga ehtiyoj yoʻq
 
 ## Oʻrnatish
 
@@ -66,18 +66,18 @@ pip install -e GigaAM[torch]
 # Matn va chiqish fayli (standart qiymatlar)
 python3 scripts/tts_multilang.py "Привет! Hello! Salom!" /tmp/tts_output.mp3
 
-# Aralash kirish — segmentlar alohida aniqlanadi va ovozlashtiriladi
+# Aralash til — segmentlar alohida aniqlanadi va ovozlashtiriladi
 python3 scripts/tts_multilang.py "bratan, nado sdelat legacy project, salom bolla" out.mp3
 ```
 
-Bir nechta segmentni birlashtirish uchun PATHda `ffmpeg` boʻlishi kerak.
+Segmentlarni birlashtirish uchun `ffmpeg` PATHda boʻlishi shart.
 
 ## Litsenziya
 MIT
 
 ## 📬 Aloqa
 
-Savollaringiz bormi? Yozing: **[allumaxmail@gmail.com](mailto:allumaxmail@gmail.com)**
+Savollaringiz boʻlsa yozing: **[allumaxmail@gmail.com](mailto:allumaxmail@gmail.com)**
 
 ---
 
